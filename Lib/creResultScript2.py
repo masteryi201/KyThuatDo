@@ -105,9 +105,9 @@ class Sheet(QMainWindow):
 		super().__init__()
 
 
-		self.form_widget = MyTable(%s,4)
+		self.form_widget = MyTable(%s,6)
 		self.setCentralWidget(self.form_widget)
-		col_headers = ["A", "T", "ES", "EI"]
+		col_headers = ["A", "T", "ES", "EI", "k", "alpha"]
 		row_headers = ["Khâu khép kín"]
 		row_headers = row_headers + ["Khâu tăng"] + lst1 + ["Khâu giảm"] + lst2
 		self.form_widget.setHorizontalHeaderLabels(col_headers)
@@ -123,9 +123,9 @@ class Sheet(QMainWindow):
 		""" %(SoKhauTang,SoKhauGiam-1,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
 file_object.close()
 file_object1 = open(join_path, mode='a',encoding="utf-8")
-
-for i in range(0, number1):
-	file_object1.write("""
+if value == 0:
+	for i in range(0, number1):
+		file_object1.write("""
 		At%s = QTableWidgetItem("%s.2f" %sktt%s)
 		self.form_widget.setItem(%s,0, At%s)
 		Tt%s = QTableWidgetItem("%s.2f" %sdst%s)
@@ -136,8 +136,8 @@ for i in range(0, number1):
 		self.form_widget.setItem(%s,3, EIt%s)
 			""" %(i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i))
 
-for i in range(0, number2-1):
-	file_object1.write("""
+	for i in range(0, number2-1):
+		file_object1.write("""
 		Ad%s = QTableWidgetItem("%s.2f" %sktd%s)
 		self.form_widget.setItem(%s,0, Ad%s)
 		Td%s = QTableWidgetItem("%s.2f" %sdsd%s)
@@ -147,11 +147,42 @@ for i in range(0, number2-1):
 		EId%s = QTableWidgetItem("%s.2f" %seid%s)
 		self.form_widget.setItem(%s,3, EId%s)
 			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
+elif value == 1:
+	for i in range(0, number1):
+		file_object1.write("""
+		At%s = QTableWidgetItem("%s.2f" %sktt%s)
+		self.form_widget.setItem(%s,0, At%s)
+		Tt%s = QTableWidgetItem("%s.2f" %sdst%s)
+		self.form_widget.setItem(%s,1, Tt%s)
+		ESt%s = QTableWidgetItem("%s.2f" %sest%s)
+		self.form_widget.setItem(%s,2, ESt%s)
+		EIt%s = QTableWidgetItem("%s.2f" %seit%s)
+		self.form_widget.setItem(%s,3, EIt%s)
+		kt_%s = QTableWidgetItem("%s.2f" %skt%s)
+		self.form_widget.setItem(%s,4, kt_%s)
+		at_%s = QTableWidgetItem("%s.2f" %sat%s)
+		self.form_widget.setItem(%s,5, at_%s)
+			""" %(i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i))
 
+	for i in range(0, number2-1):
+		file_object1.write("""
+		Ad%s = QTableWidgetItem("%s.2f" %sktd%s)
+		self.form_widget.setItem(%s,0, Ad%s)
+		Td%s = QTableWidgetItem("%s.2f" %sdsd%s)
+		self.form_widget.setItem(%s,1, Td%s)
+		ESd%s = QTableWidgetItem("%s.2f" %sesd%s)
+		self.form_widget.setItem(%s,2, ESd%s)
+		EId%s = QTableWidgetItem("%s.2f" %seid%s)
+		self.form_widget.setItem(%s,3, EId%s)
+		kd_%s = QTableWidgetItem("%s.2f" %skt%s)
+		self.form_widget.setItem(%s,4, kd_%s)
+		ad_%s = QTableWidgetItem("%s.2f" %sat%s)
+		self.form_widget.setItem(%s,5, ad_%s)
+			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
 
 file_object1.write("""
 
-		self.setGeometry(100,100,600,300)
+		self.setGeometry(100,100,800,300)
 		self.setWindowTitle("Kết Quả")
 
 		self.show()
