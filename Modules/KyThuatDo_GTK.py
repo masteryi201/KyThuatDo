@@ -67,7 +67,7 @@ class MainWindow(QWidget):
        self.label0 = QLabel("    Kỹ thuật đo")
        self.label0.setFont(font1)
        self.label0.setStyleSheet("color: red")
-       self.labelnamedesign = QLabel("\t\t\t\t\tCode: Nguyễn Ích Thanh Tú\n\t\t\t\t\tTester: Nguyễn Văn Nghĩa")
+       self.labelnamedesign = QLabel("\t\t\t\t\tCoder: Nguyễn Ích Thanh Tú\n\t\t\t\t\tTester: Nguyễn Văn Nghĩa")
        self.labelnamedesign.setFont(fontdesign)
        self.labelnamedesign.setStyleSheet("color: red")
        self.label1 = QLabel(" 1: Giải bài toán kiểm tra bằng phương pháp lấp lẫn hoàn toàn ")
