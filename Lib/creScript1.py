@@ -13,8 +13,9 @@ from config import *
 number = SoKhauTang
 value = value
 
-file_object = open(join_path, mode='w',encoding="utf-8")
-file_object.write("""
+if number != 0:
+	file_object = open(join_path, mode='w',encoding="utf-8")
+	file_object.write("""
 import os
 import sys
 from pathlib import Path
@@ -47,12 +48,12 @@ class Window(QWidget):
 ##############################################
 """)
 
-file_object.close()
-file_object2 = open(join_path, mode='a',encoding="utf-8")
+	file_object.close()
+	file_object2 = open(join_path, mode='a',encoding="utf-8")
 
-if value == 0:
-	for i in range(1, number+1):
-		file_object2.write("""
+	if value == 0:
+		for i in range(1, number+1):
+			file_object2.write("""
 		scrollLayout.addWidget(QLabel('_____________________     Khâu %s      ________________________'))
 		scrollLayout.addWidget(QLabel('Kích thước danh nghĩa (mm):'))
 		self.kt%s = QLineEdit()
@@ -64,9 +65,9 @@ if value == 0:
 		self.ghd%s = QLineEdit()
 		scrollLayout.addWidget(self.ghd%s)
 		""" %(i,i,i,i,i,i,i))
-elif value == 1:
-	for i in range(1, number+1):
-		file_object2.write("""
+	elif value == 1:
+		for i in range(1, number+1):
+			file_object2.write("""
 		scrollLayout.addWidget(QLabel('_____________________     Khâu %s      ________________________'))
 		scrollLayout.addWidget(QLabel('Kích thước danh nghĩa (mm):'))
 		self.kt%s = QLineEdit()
@@ -84,7 +85,7 @@ elif value == 1:
 		self.a%s = QLineEdit()
 		scrollLayout.addWidget(self.a%s)
 		""" %(i,i,i,i,i,i,i,i,i,i,i))
-	file_object2.write("""
+		file_object2.write("""
 		scrollLayout.addWidget(QLabel('_____________________     Khâu tổng    ______________________'))		
 		scrollLayout.addWidget(QLabel('Hệ số k:'))
 		self.ktong = QLineEdit()
@@ -93,9 +94,9 @@ elif value == 1:
 		self.atong = QLineEdit()
 		scrollLayout.addWidget(self.atong)
 		""")
-file_object2.close()
-file_object3 = open(join_path, mode='a',encoding="utf-8")
-file_object3.write("""
+	file_object2.close()
+	file_object3 = open(join_path, mode='a',encoding="utf-8")
+	file_object3.write("""
 ##############################################     
 		scrollLayout.addWidget(QLabel(''))     
 		scroll.setWidget(scrollContent)
@@ -118,11 +119,11 @@ file_object3.write("""
 		Total_Lim_medium = 0
 
 """)
-file_object3.close()
-file_object4 = open(join_path, mode='a',encoding="utf-8")
-if value == 0:
-	for j in range(1, number+1):
-		file_object4.write("""
+	file_object3.close()
+	file_object4 = open(join_path, mode='a',encoding="utf-8")
+	if value == 0:
+		for j in range(1, number+1):
+			file_object4.write("""
 		a = float(self.kt%s.text())
 		b = float(self.ght%s.text())
 		c = float(self.ghd%s.text())
@@ -131,9 +132,9 @@ if value == 0:
 		Total_Lim_medium += (b+c)/2
 		Total_size += a
 			""" %(j,j,j))
-elif value == 1:
-	for j in range(1, number+1):
-		file_object4.write("""
+	elif value == 1:
+		for j in range(1, number+1):
+			file_object4.write("""
 		a = float(self.kt%s.text())
 		b = float(self.ght%s.text())
 		c = float(self.ghd%s.text())
@@ -144,7 +145,7 @@ elif value == 1:
 		Total_Lim_medium += (b+c)/2
 		Total_size += a
 			""" %(j,j,j,j,j))
-	file_object4.write("""
+		file_object4.write("""
 		file_objectTong = open(join_path, mode='a')
 		file_objectTong.write('ktong = ' + '\"' + self.ktong.text() +'\"\\n')
 		file_objectTong.write('atong = ' + '\"' + self.atong.text() +'\"\\n')
@@ -152,12 +153,12 @@ elif value == 1:
 
 	""")
 
-file_object4.close()
+	file_object4.close()
 
 
 
-file_object5 = open(join_path, mode='a',encoding="utf-8")
-file_object5.write("""
+	file_object5 = open(join_path, mode='a',encoding="utf-8")
+	file_object5.write("""
 		file_object_lst = open(join_path, mode='a')
 		lst2.extend([Total_size, Total_Dung_Sai, Total_Lim_medium])
 		file_object_lst.write("tup_in_creScript1 = (%s,%s)" %(lst,lst2))	
@@ -168,6 +169,26 @@ app = QApplication(sys.argv)
 a_windows = Window()
 sys.exit(app.exec_())
 	""")
-file_object5.close()
-if SoKhauTang != 0:
+	file_object5.close()
+	call(["python", join_path])
+
+else :
+	file_object_error = open(join_path, mode='w',encoding="utf-8")
+	file_object_error.write("""
+import os
+import sys
+from pathlib import Path
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+import time
+
+mypath = Path().absolute()
+join_path = os.path.join(mypath, "..\\\Temp\\\ThongSoKhauTang.py")
+
+file_object_error = open(join_path, mode='a')
+file_object_error.write("tup_in_creScript1 = ([], [0, 0, 0])")	
+file_object_error.close()
+""")
+	file_object_error.close()
 	call(["python", join_path])
