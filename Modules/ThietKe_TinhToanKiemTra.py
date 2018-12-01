@@ -423,7 +423,7 @@ a_boithuong = %0.5f\n
 				es_khau_boithuong = em_khau_boithuong + 0.5 * DungSai_boithuong
 				ei_khau_boithuong = es_khau_boithuong - DungSai_boithuong
 			else :
-				print"(DungSaiAm = True") 
+				print("DungSaiAm = True") 
 
 
 
