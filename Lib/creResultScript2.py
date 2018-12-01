@@ -148,7 +148,7 @@ if check_true == 0:
 		self.form_widget.setItem(%s,2, ESd%s)
 		EId%s = QTableWidgetItem("%s.2f" %seid%s)
 		self.form_widget.setItem(%s,3, EId%s)
-			""" %(i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i))
+			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
 elif check_true == 1:
 	for i in range(0, number1):
 		print(i)
@@ -174,8 +174,7 @@ elif check_true == 1:
 		self.form_widget.setItem(%s,2, ESd%s)
 		EId%s = QTableWidgetItem("%s.2f" %seid%s)
 		self.form_widget.setItem(%s,3, EId%s)
-			""" %(i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i,i,symboi,symboi1,i,i+5,i))
-
+			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
 
 
 file_object1.write("""
