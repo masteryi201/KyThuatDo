@@ -123,10 +123,9 @@ class Sheet(QMainWindow):
 		""" %(SoKhauTang,SoKhauGiam-1,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
 file_object.close()
 file_object1 = open(join_path, mode='a',encoding="utf-8")
-if check_true == 0:
-	for i in range(0, number1-1):
-		print(i)
-		file_object1.write("""
+
+for i in range(0, number1):
+	file_object1.write("""
 		At%s = QTableWidgetItem("%s.2f" %sktt%s)
 		self.form_widget.setItem(%s,0, At%s)
 		Tt%s = QTableWidgetItem("%s.2f" %sdst%s)
@@ -137,35 +136,8 @@ if check_true == 0:
 		self.form_widget.setItem(%s,3, EIt%s)
 			""" %(i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i))
 
-	for i in range(0, number2):
-		print(i)
-		file_object1.write("""
-		Ad%s = QTableWidgetItem("%s.2f" %sktd%s)
-		self.form_widget.setItem(%s,0, Ad%s)
-		Td%s = QTableWidgetItem("%s.2f" %sdsd%s)
-		self.form_widget.setItem(%s,1, Td%s)
-		ESd%s = QTableWidgetItem("%s.2f" %sesd%s)
-		self.form_widget.setItem(%s,2, ESd%s)
-		EId%s = QTableWidgetItem("%s.2f" %seid%s)
-		self.form_widget.setItem(%s,3, EId%s)
-			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
-elif check_true == 1:
-	for i in range(0, number1):
-		print(i)
-		file_object1.write("""
-		At%s = QTableWidgetItem("%s.2f" %sktt%s)
-		self.form_widget.setItem(%s,0, At%s)
-		Tt%s = QTableWidgetItem("%s.2f" %sdst%s)
-		self.form_widget.setItem(%s,1, Tt%s)
-		ESt%s = QTableWidgetItem("%s.2f" %sest%s)
-		self.form_widget.setItem(%s,2, ESt%s)
-		EIt%s = QTableWidgetItem("%s.2f" %seit%s)
-		self.form_widget.setItem(%s,3, EIt%s)
-			""" %(i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i,i,symboi,symboi1,i,i+2,i))
-
-	for i in range(0, number2-1):
-		print(i)
-		file_object1.write("""
+for i in range(0, number2-1):
+	file_object1.write("""
 		Ad%s = QTableWidgetItem("%s.2f" %sktd%s)
 		self.form_widget.setItem(%s,0, Ad%s)
 		Td%s = QTableWidgetItem("%s.2f" %sdsd%s)
