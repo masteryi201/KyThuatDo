@@ -45,7 +45,10 @@ class Window(QWidget):
 		self.b.clicked.connect(self.bnt_clear)
 		self.checkbox1.clicked.connect(self.check_singer)
 		self.checkbox2.clicked.connect(self.check_singer)
-
+		qtRectangle = self.frameGeometry()
+		centerPoint = QDesktopWidget().availableGeometry().center()
+		qtRectangle.moveCenter(centerPoint)
+		self.move(qtRectangle.topLeft())
 		self.show()
 
 
