@@ -222,7 +222,7 @@ esd%s = %s
 eid%s = %s\n
 			""" %(inra2, list4[inra2][0], inra2, list4[inra2][1], inra2, list4[inra2][2], inra2, list4[inra2][3]))
 
-			file_resurt.write("""
+		file_resurt.write("""
 kt_boithuong = %0.5f
 ds_boithuong = %0.5f
 es_boithuong = %0.5f
@@ -375,7 +375,7 @@ kd%s = %s
 ad%s = %s\n
 			""" %(inra2, list4[inra2][0], inra2, list4[inra2][1], inra2, list4[inra2][2], inra2, list4[inra2][3], inra2, list4[inra2][5], inra2, list4[inra2][6]))
 
-			file_resurt.write("""
+		file_resurt.write("""
 kt_boithuong = %0.5f
 ds_boithuong = %0.5f
 es_boithuong = %0.5f
