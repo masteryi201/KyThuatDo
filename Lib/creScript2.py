@@ -85,15 +85,6 @@ class Window(QWidget):
 		self.a%s = QLineEdit()
 		scrollLayout.addWidget(self.a%s)
 		""" %(i,i,i,i,i,i,i,i,i,i,i))
-		file_object2.write("""
-		scrollLayout.addWidget(QLabel('_____________________     Khâu tổng    ______________________'))		
-		scrollLayout.addWidget(QLabel('Hệ số k:'))
-		self.ktong = QLineEdit()
-		scrollLayout.addWidget(self.ktong)
-		scrollLayout.addWidget(QLabel('Hệ số alpha:'))
-		self.atong = QLineEdit()
-		scrollLayout.addWidget(self.atong)
-		""")
 	file_object2.close()
 	file_object3 = open(join_path, mode='a',encoding="utf-8")
 	file_object3.write("""
