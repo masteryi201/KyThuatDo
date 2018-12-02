@@ -111,7 +111,7 @@ file_object3.write("""
 		box.addWidget(self.button)
 		self.setGeometry(200,50,400,600)
 		self.setMaximumSize(400, 600)
-		self.setWindowTitle("Nhập thông số các khâu giảm")
+		self.setWindowTitle("Nhập thông số các khâu tăng")
 		self.button.clicked.connect(self.send_value)
 """)
 file_object3.close()
