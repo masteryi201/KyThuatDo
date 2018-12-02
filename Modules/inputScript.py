@@ -31,7 +31,10 @@ class Window(QWidget):
 		self.setLayout(v_box)
 		self.setWindowTitle("")
 		self.setMaximumSize(200,100)
-
+		qtRectangle = self.frameGeometry()
+		centerPoint = QDesktopWidget().availableGeometry().center()
+		qtRectangle.moveCenter(centerPoint)
+		self.move(qtRectangle.topLeft())
 		self.b.clicked.connect(self.bnt_clear)
 		self.show()
 
