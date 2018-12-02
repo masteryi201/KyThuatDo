@@ -57,9 +57,9 @@ class Sheet(QMainWindow):
 		super().__init__()
 
 
-		self.form_widget = MyTable(%s,4)
+		self.form_widget = MyTable(%s,6)
 		self.setCentralWidget(self.form_widget)
-		col_headers = ["A", "T", "ES", "EI"]
+		col_headers = ["A", "T", "ES", "EI", "k", "alpha"]
 		row_headers = ["Khâu khép kín"]
 		row_headers = row_headers + ["Khâu tăng"] + lst1 + ["Khâu giảm"] + lst2
 		self.form_widget.setHorizontalHeaderLabels(col_headers)
@@ -204,9 +204,9 @@ elif value == 1:
 		self.form_widget.setItem(%s,2, ESd%s)
 		EId%s = QTableWidgetItem("%s.2f" %seid%s)
 		self.form_widget.setItem(%s,3, EId%s)
-		kd_%s = QTableWidgetItem("%s.2f" %skt%s)
+		kd_%s = QTableWidgetItem("%s.2f" %skd%s)
 		self.form_widget.setItem(%s,4, kd_%s)
-		ad_%s = QTableWidgetItem("%s.2f" %sat%s)
+		ad_%s = QTableWidgetItem("%s.2f" %sad%s)
 		self.form_widget.setItem(%s,5, ad_%s)
 			""" %(i,symboi,symboi1,i,i+number1+2,i,i,symboi,symboi1,i,i+number1+2,i,i,symboi,symboi1,i,i+number1+2,i,i,symboi,symboi1,i,i+number1+2,i,i,symboi,symboi1,i,i+number1+2,i,i,symboi,symboi1,i,i+number1+2,i))
 	if check_true == 1 :
@@ -236,9 +236,9 @@ elif value == 1:
 		self.form_widget.setItem(%s,2, ESd%s)
 		EId%s = QTableWidgetItem("%s.2f" %seid%s)
 		self.form_widget.setItem(%s,3, EId%s)
-		kd_%s = QTableWidgetItem("%s.2f" %skt%s)
+		kd_%s = QTableWidgetItem("%s.2f" %skd%s)
 		self.form_widget.setItem(%s,4, kd_%s)
-		ad_%s = QTableWidgetItem("%s.2f" %sat%s)
+		ad_%s = QTableWidgetItem("%s.2f" %sad%s)
 		self.form_widget.setItem(%s,5, ad_%s)
 			""" %(i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i,i,symboi,symboi1,i,i+number1+3,i))
 
