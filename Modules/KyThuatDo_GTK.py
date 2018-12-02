@@ -40,7 +40,10 @@ class MainWindow(QWidget):
        sImage = oImage.scaled(QSize(620,500))
        self.setWindowTitle("Chương trình tính chuỗi kích thước - Kỹ thuật đo")
        self.setMaximumSize(620,500)
-                          # resize Image to widgets size
+       qtRectangle = self.frameGeometry()
+       centerPoint = QDesktopWidget().availableGeometry().center()
+       qtRectangle.moveCenter(centerPoint)
+       self.move(qtRectangle.topLeft())                         # resize Image to widgets size
        palette = QPalette()
        palette.setBrush(10, QBrush(sImage))                     # 10 = Windowrole
        self.setPalette(palette)
