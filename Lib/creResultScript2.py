@@ -72,7 +72,11 @@ class Sheet(QMainWindow):
 		self.form_widget.setItem(0,2, ESboithuong)
 		EIboithuong = QTableWidgetItem("%0.4f")
 		self.form_widget.setItem(0,3, EIboithuong)
-		""" %(SoKhauTang-1,SoKhauGiam,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
+		kboithuong = QTableWidgetItem("%0.3f")
+		self.form_widget.setItem(0,4, kboithuong)
+		aboithuong = QTableWidgetItem("%0.3f")
+		self.form_widget.setItem(0,5, aboithuong)
+		""" %(SoKhauTang-1,SoKhauGiam,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong,k_boithuong,a_boithuong))
 elif check_true == 1:
 	file_object.write("""
 import sys
@@ -124,7 +128,11 @@ class Sheet(QMainWindow):
 		self.form_widget.setItem(0,2, ESboithuong)
 		EIboithuong = QTableWidgetItem("%0.4f")
 		self.form_widget.setItem(0,3, EIboithuong)
-		""" %(SoKhauTang,SoKhauGiam-1,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
+		kboithuong = QTableWidgetItem("%0.3f")
+		self.form_widget.setItem(0,4, kboithuong)
+		aboithuong = QTableWidgetItem("%0.3f")
+		self.form_widget.setItem(0,5, aboithuong)
+		""" %(SoKhauTang,SoKhauGiam-1,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong,k_boithuong,a_boithuong))
 file_object.close()
 file_object1 = open(join_path, mode='a',encoding="utf-8")
 if value == 0:
