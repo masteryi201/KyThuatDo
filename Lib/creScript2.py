@@ -136,13 +136,6 @@ class Window(QWidget):
 		Total_Lim_medium += (b+c)/2
 		Total_size += a
 			""" %(j,j,j,j,j))
-		file_object4.write("""
-		file_objectTong = open(join_path, mode='a')
-		file_objectTong.write('ktong = ' + '\"' + self.ktong.text() +'\"\\n')
-		file_objectTong.write('atong = ' + '\"' + self.atong.text() +'\"\\n')
-		file_objectTong.close()
-
-	""")
 
 	file_object4.close()
 
