@@ -21,8 +21,9 @@ tong = SoKhauTang + SoKhauGiam +2
 symboi = "%0"
 symboi1 = "%"
 file_object = open(join_path, mode='w',encoding="utf-8")
-if check_true == 0 :
-	file_object.write("""
+if value == 0:
+	if check_true == 0 :
+		file_object.write("""
 import sys
 import os
 from pathlib import Path
@@ -55,6 +56,114 @@ class MyTable(QTableWidget):
 class Sheet(QMainWindow):
 	def __init__(self):
 		super().__init__()
+
+		self.setGeometry(100,100,500,(number1+number2+3)*37)
+
+		self.form_widget = MyTable(%s,4)
+		self.setCentralWidget(self.form_widget)
+		col_headers = ["A", "T", "ES", "EI"]
+		row_headers = ["Khâu khép kín"]
+		row_headers = row_headers + ["Khâu tăng"] + lst1 + ["Khâu giảm"] + lst2
+		self.form_widget.setHorizontalHeaderLabels(col_headers)
+		self.form_widget.setVerticalHeaderLabels(row_headers)
+		Aboithuong = QTableWidgetItem("%0.2f")
+		self.form_widget.setItem(0,0, Aboithuong)
+		Tboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,1, Tboithuong)
+		ESboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,2, ESboithuong)
+		EIboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,3, EIboithuong)
+		""" %(SoKhauTang-1,SoKhauGiam,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
+	elif check_true == 1:
+		file_object.write("""
+import sys
+import os
+from pathlib import Path
+from PyQt5.QtWidgets import *
+mypath = Path().absolute()
+join = os.path.join(mypath, "..\\\Temp")
+path_config = os.path.join(mypath, "..\\\Temp\\\config.py")
+sys.path.append(join)  
+from config import *
+def list_args(number):
+    lst1 = []
+    cont = 1
+    while cont <= number:
+        kichthuoc = "A" + str(cont)
+        lst1.extend([kichthuoc])
+
+        cont += 1
+    return lst1
+
+number1 = %s
+number2 = %s
+lst1 = list_args(number1)
+lst2 = list_args(number2)
+class MyTable(QTableWidget):
+	def __init__(self,r,c):
+		super().__init__(r,c)
+
+		self.show()
+
+class Sheet(QMainWindow):
+	def __init__(self):
+		super().__init__()
+
+		self.setGeometry(100,100,500,(number1+number2+3)*37)
+
+		self.form_widget = MyTable(%s,4)
+		self.setCentralWidget(self.form_widget)
+		col_headers = ["A", "T", "ES", "EI"]
+		row_headers = ["Khâu khép kín"]
+		row_headers = row_headers + ["Khâu tăng"] + lst1 + ["Khâu giảm"] + lst2
+		self.form_widget.setHorizontalHeaderLabels(col_headers)
+		self.form_widget.setVerticalHeaderLabels(row_headers)
+		Aboithuong = QTableWidgetItem("%0.2f")
+		self.form_widget.setItem(0,0, Aboithuong)
+		Tboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,1, Tboithuong)
+		ESboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,2, ESboithuong)
+		EIboithuong = QTableWidgetItem("%0.4f")
+		self.form_widget.setItem(0,3, EIboithuong)
+		""" %(SoKhauTang,SoKhauGiam-1,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong))
+if value == 1:
+	if check_true == 0 :
+		file_object.write("""
+import sys
+import os
+from pathlib import Path
+from PyQt5.QtWidgets import *
+mypath = Path().absolute()
+join = os.path.join(mypath, "..\\\Temp")
+path_config = os.path.join(mypath, "..\\\Temp\\\config.py")
+sys.path.append(join)  
+from config import *
+def list_args(number):
+    lst1 = []
+    cont = 1
+    while cont <= number:
+        kichthuoc = "A" + str(cont)
+        lst1.extend([kichthuoc])
+
+        cont += 1
+    return lst1
+
+number1 = %s
+number2 = %s
+lst1 = list_args(number1)
+lst2 = list_args(number2)
+class MyTable(QTableWidget):
+	def __init__(self,r,c):
+		super().__init__(r,c)
+
+		self.show()
+
+class Sheet(QMainWindow):
+	def __init__(self):
+		super().__init__()
+		self.setGeometry(100,100,700,(number1+number2+3)*37)
 
 
 		self.form_widget = MyTable(%s,6)
@@ -77,8 +186,8 @@ class Sheet(QMainWindow):
 		aboithuong = QTableWidgetItem("%0.3f")
 		self.form_widget.setItem(0,5, aboithuong)
 		""" %(SoKhauTang-1,SoKhauGiam,tong,kt_boithuong,ds_boithuong,es_boithuong,ei_boithuong,k_boithuong,a_boithuong))
-elif check_true == 1:
-	file_object.write("""
+	elif check_true == 1:
+		file_object.write("""
 import sys
 import os
 from pathlib import Path
@@ -112,6 +221,7 @@ class Sheet(QMainWindow):
 	def __init__(self):
 		super().__init__()
 
+		self.setGeometry(100,100,700,(number1+number2+3)*37)
 
 		self.form_widget = MyTable(%s,6)
 		self.setCentralWidget(self.form_widget)
@@ -252,7 +362,6 @@ elif value == 1:
 
 file_object1.write("""
 
-		self.setGeometry(100,100,800,300)
 		self.setWindowTitle("Kết Quả")
 
 		self.show()
