@@ -11,6 +11,7 @@ join_path = os.path.join(mypath, "..\\Temp")
 path_config = os.path.join(mypath, "..\\Temp\\config.py")
 path_ThongSoKhauTang = os.path.join(mypath, "..\\Temp\\ThietKe_ThongSoKhauTang.py")
 path_ThongSoKhauGiam = os.path.join(mypath, "..\\Temp\\ThietKe_ThongSoKhauGiam.py")
+path_intermediate = os.path.join(mypath, "..\\Modules\\intermediate_steps.py")
 sys.path.append(join_path)  
 from config import *
 from ThietKe_ThongSoKhauTang import *
@@ -200,12 +201,20 @@ if value == 0:
 			Tong_em_giam += list4[args2][4]
 		DungSai_boithuong = Dung_Sai_Total -  (Tong_DungSai_tang + Tong_DungSai_giam)
 		if DungSai_boithuong >= 0: 
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = False
+			""")
+			file_signal.close()			
 			em_khau_boithuong = Limit_mediumTotal - Tong_em_tang + Tong_em_giam
 			es_khau_boithuong = em_khau_boithuong + 0.5 * DungSai_boithuong
 			ei_khau_boithuong = es_khau_boithuong - DungSai_boithuong
 		else :
-			print("T am")
-
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = True
+			""")
+			file_signal.close()
 		file_resurt = open(path_config, mode='a')
 		for  inra1 in range(input_args_SizeUp -1):
 			file_resurt.write("""
@@ -226,8 +235,9 @@ eid%s = %s\n
 kt_boithuong = %0.5f
 ds_boithuong = %0.5f
 es_boithuong = %0.5f
-ei_boithuong = %0.5f\n
-			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong))
+ei_boithuong = %0.5f
+Vitri_khauboithuong = %s\n
+			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong,Khau_boi_thuong))
 		file_resurt.close()
 	elif check_true == 1 :
 		Khau_boi_thuong = KhauBoiThuongGiam
@@ -259,12 +269,22 @@ ei_boithuong = %0.5f\n
 			Tong_em_tang += list4[args2][4]
 		DungSai_boithuong = Dung_Sai_Total -  (Tong_DungSai_tang + Tong_DungSai_giam)
 		if DungSai_boithuong >= 0: 
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = False
+			""")
+			file_signal.close()
 			em_khau_boithuong = -Limit_mediumTotal + Tong_em_tang - Tong_em_giam
 			es_khau_boithuong = em_khau_boithuong + 0.5 * DungSai_boithuong
 			ei_khau_boithuong = es_khau_boithuong - DungSai_boithuong
 		else :
-			print("DungSaiAm = True")
-
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = True
+			""")
+			es_khau_boithuong = 0
+			ei_khau_boithuong = 0
+			file_signal.close()
 
 		file_resurt = open(path_config, mode='a')
 		for  inra1 in range(input_args_SizeUp):
@@ -286,8 +306,9 @@ eid%s = %s\n
 kt_boithuong = %0.5f
 ds_boithuong = %0.5f
 es_boithuong = %0.5f
-ei_boithuong = %0.5f\n
-			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong))
+ei_boithuong = %0.5f
+Vitri_khauboithuong = %s\n
+			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong,Khau_boi_thuong))
 		file_resurt.close()
 
 elif value == 1:
@@ -350,11 +371,21 @@ elif value == 1:
 		K_binhphuong = math.pow(k_boithuong,2)
 		DungSai_boithuong = math.sqrt((Tong_binhphuong - (Tk_tang + Tk_giam)) / K_binhphuong)
 		if DungSai_boithuong >= 0:
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = False
+			""")
+			file_signal.close()
 			em_khau_boithuong = Limit_mediumTotal - Tong_em_tang + Tong_em_giam - 0.5 * alpha_boithuong * DungSai_boithuong + 0.5 * alpha_tong * Dung_Sai_Total
 			es_khau_boithuong = em_khau_boithuong + 0.5 * DungSai_boithuong
 			ei_khau_boithuong = es_khau_boithuong - DungSai_boithuong
 		else :
-			print("DungSaiAm = True")
+			file_signal = open(path_config, mode='a')
+			file_signal.write("""
+T_am_signal = True
+			""")
+			file_signal.close()
+
 		file_resurt = open(path_config, mode='a')
 		for  inra1 in range(input_args_SizeUp -1):
 			file_resurt.write("""
@@ -381,8 +412,9 @@ ds_boithuong = %0.5f
 es_boithuong = %0.5f
 ei_boithuong = %0.5f
 k_boithuong = %0.5f
-a_boithuong = %0.5f\n
-			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong, k_boithuong, alpha_boithuong))
+a_boithuong = %0.5f
+Vitri_khauboithuong = %s\n
+			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong, k_boithuong, alpha_boithuong,Khau_boi_thuong))
 		file_resurt.close()
 
 	if check_true == 1:
@@ -419,13 +451,20 @@ a_boithuong = %0.5f\n
 			K_binhphuong = math.pow(k_boithuong,2)
 			DungSai_boithuong = math.sqrt((Tong_binhphuong - (Tk_tang + Tk_giam)) / K_binhphuong)
 			if DungSai_boithuong >= 0:
+				file_signal = open(path_config, mode='a')
+				file_signal.write("""
+	T_am_signal = False
+				""")
+				file_signal.close()
 				em_khau_boithuong = -Limit_mediumTotal + Tong_em_tang - Tong_em_giam - 0.5 * alpha_boithuong * DungSai_boithuong - 0.5 * alpha_tong * Dung_Sai_Total
 				es_khau_boithuong = em_khau_boithuong + 0.5 * DungSai_boithuong
 				ei_khau_boithuong = es_khau_boithuong - DungSai_boithuong
 			else :
-				print("DungSaiAm = True") 
-
-
+				file_signal = open(path_config, mode='a')
+				file_signal.write("""
+	T_am_signal = True
+				""")
+				file_signal.close()
 
 			file_resurt = open(path_config, mode='a')
 			for  inra1 in range(input_args_SizeUp):
@@ -453,6 +492,9 @@ ds_boithuong = %0.5f
 es_boithuong = %0.5f
 ei_boithuong = %0.5f
 k_boithuong = %0.5f
-a_boithuong = %0.5f\n
-			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong, k_boithuong, alpha_boithuong))
+a_boithuong = %0.5f
+Vitri_khauboithuong = %s\n
+			""" %(Size_boithuong, DungSai_boithuong, es_khau_boithuong, ei_khau_boithuong, k_boithuong, alpha_boithuong,Khau_boi_thuong))
 			file_resurt.close()
+
+call(["python", path_intermediate])

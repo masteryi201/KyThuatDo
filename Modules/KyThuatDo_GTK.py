@@ -23,19 +23,17 @@ path_creScript2 = os.path.join(mypath, "..\\Lib\\creScript2.py")
 path_creScript3 = os.path.join(mypath, "..\\Lib\\creScript3.py")
 path_creScript4 = os.path.join(mypath, "..\\Lib\\creScript4.py")
 path_creResultScript1 = os.path.join(mypath, "..\\Lib\\creResultScript1.py")
-path_creResultScript2 = os.path.join(mypath, "..\\Lib\\creResultScript2.py")
 sys.path.append(join_path)
 
 resize = open(path_config, mode='w',encoding="utf-8")
 resize.close()
 
 from config import *
-
+print()
 class MainWindow(QWidget):
   def __init__(self):
        QWidget.__init__(self)
        self.setGeometry(100,100,620,500)
-
        oImage = QImage(join_path_image)
        sImage = oImage.scaled(QSize(620,500))
        self.setWindowTitle("Chương trình tính chuỗi kích thước - Kỹ thuật đo")
@@ -185,7 +183,6 @@ class MainWindow(QWidget):
        call(["python", path_creScript3])
        call(["python", path_creScript4])
        call(["python", path_ThietKe_TinhToanKiemTra])
-       call(["python", path_creResultScript2])
 
   def function_design_probability(self):
        file_object = open(path_config, mode='w',encoding="utf-8")
@@ -195,7 +192,6 @@ class MainWindow(QWidget):
        call(["python", path_creScript3])
        call(["python", path_creScript4])
        call(["python", path_ThietKe_TinhToanKiemTra])
-       call(["python", path_creResultScript2])
 
 if __name__ == "__main__":
 
