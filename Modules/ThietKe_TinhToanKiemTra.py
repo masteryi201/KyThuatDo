@@ -453,7 +453,7 @@ Vitri_khauboithuong = %s\n
 			if DungSai_boithuong >= 0:
 				file_signal = open(path_config, mode='a')
 				file_signal.write("""
-	T_am_signal = False
+T_am_signal = False
 				""")
 				file_signal.close()
 				em_khau_boithuong = -Limit_mediumTotal + Tong_em_tang - Tong_em_giam - 0.5 * alpha_boithuong * DungSai_boithuong - 0.5 * alpha_tong * Dung_Sai_Total
@@ -462,7 +462,7 @@ Vitri_khauboithuong = %s\n
 			else :
 				file_signal = open(path_config, mode='a')
 				file_signal.write("""
-	T_am_signal = True
+T_am_signal = True
 				""")
 				file_signal.close()
 
