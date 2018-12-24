@@ -48,6 +48,7 @@ class Window(QWidget):
 		scrollContent = QWidget(scroll)
 		scrollLayout = QVBoxLayout(scrollContent)
 		scrollContent.setLayout(scrollLayout)
+		scrollLayout.addWidget(QLabel('Vì dung sai đã tính âm nên hãy chọn khâu khác để làm khâu bồi thường :'))
 
 ##############################################
 """)
