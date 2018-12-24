@@ -8,7 +8,7 @@ mypath = Path().absolute()
 join_path = os.path.join(mypath, "..\\Temp")
 path_config = os.path.join(mypath, "..\\Temp\\config.py")
 path_creResultScript2 = os.path.join(mypath, "..\\Lib\\creResultScript2.py")
-path_Warning = os.path.join(mypath, "..\\Modules\\Warning_Resend.py")
+path_Warning = os.path.join(mypath, "..\\Lib\\creScript5.py")
 sys.path.append(join_path)  
 from config import *
 
