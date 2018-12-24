@@ -114,14 +114,7 @@ file_object3.write("""
 		self.setWindowTitle("Nhập thông số các khâu giảm")
 		self.button.clicked.connect(self.send_value)
 """)
-file_object3.close()
-if check_true == 1:
-	file_object4 = open(join_path, mode='a',encoding="utf-8")
-	for j in range(1, number+1):
-		file_object4.write("""
-		self.ChonKhauBoiThuong%s.clicked.connect(self.clicked)
-		""" %j)
-	file_object4.close()	
+file_object3.close()	
 file_object5 = open(join_path, mode='a',encoding="utf-8")
 file_object5.write("""
 		self.show()
@@ -150,17 +143,10 @@ file_object6.close()
 file_object7 = open(join_path, mode='a',encoding="utf-8")
 file_object7.write("""
 		file_object_lst = open(join_path, mode='a')
-		file_object_lst.write('tup_in_creScript4 = %s' %(lst))	
+		file_object_lst.write('tup_in_creScript4 = %s\\n' %(lst))	
 		file_object_lst.close()
 		""")
 file_object7.close()
-file_object8 = open(join_path, mode='a',encoding="utf-8")
-file_object8.write("""
-		self.close()
-
-	def clicked(self):
-		""")
-file_object8.close()
 file_object9 = open(join_path, mode='a',encoding="utf-8")
 if check_true == 1 :
 	for j in range(1, number+1):
@@ -176,6 +162,7 @@ elif check_true == 0 :
 file_object9.close()
 file_object10 = open(join_path, mode='a',encoding="utf-8")
 file_object10.write("""
+		self.close()
 
 app = QApplication(sys.argv)
 a_windows = Window()
