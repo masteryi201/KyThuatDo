@@ -62,7 +62,7 @@ class Sheet(QMainWindow):
 		self.form_widget = MyTable(%s,4)
 		self.setCentralWidget(self.form_widget)
 		col_headers = ["A", "T", "ES", "EI"]
-		row_headers = ["Khâu khép kín"]
+		row_headers = ["Khâu bồi thường"]
 		row_headers = row_headers + ["Khâu tăng"] + lst1 + ["Khâu giảm"] + lst2
 		self.form_widget.setHorizontalHeaderLabels(col_headers)
 		self.form_widget.setVerticalHeaderLabels(row_headers)
