@@ -15,13 +15,9 @@ path_config = os.path.join(mypath, "..\\Temp\\config.py")
 path_inputScript = os.path.join(mypath, "inputScript.py")
 path_ThietKe_inputScript = os.path.join(mypath, "ThietKe_inputScript.py")
 path_NhapSoKhau = os.path.join(mypath, "NhapSoKhau.py")
-path_TinhToanKiemTra = os.path.join(mypath, "TinhToanKiemTra.py")
 path_ThietKe_TinhToanKiemTra = os.path.join(mypath, "ThietKe_TinhToanKiemTra.py")
 path_ThietKe_NhapKhauTong =  os.path.join(mypath, "ThietKe_NhapKhauTong.py")
-path_creScript1 = os.path.join(mypath, "..\\Lib\\creScript1.py")
-path_creScript2 = os.path.join(mypath, "..\\Lib\\creScript2.py")
 path_creScript3 = os.path.join(mypath, "..\\Lib\\creScript3.py")
-path_creScript4 = os.path.join(mypath, "..\\Lib\\creScript4.py")
 path_creResultScript1 = os.path.join(mypath, "..\\Lib\\creResultScript1.py")
 sys.path.append(join_path)
 
@@ -37,7 +33,9 @@ class MainWindow(QWidget):
        oImage = QImage(join_path_image)
        sImage = oImage.scaled(QSize(620,500))
        self.setWindowTitle("Chương trình tính chuỗi kích thước - Kỹ thuật đo")
-       self.setMaximumSize(620,500)
+       self.showFullScreen()		
+       #self.setMaximumSize(620,500)
+       self.showMaximized()
        qtRectangle = self.frameGeometry()
        centerPoint = QDesktopWidget().availableGeometry().center()
        qtRectangle.moveCenter(centerPoint)
@@ -159,9 +157,6 @@ class MainWindow(QWidget):
        file_object.close()
        call(["python", path_inputScript])
        call(["python", path_NhapSoKhau])
-       call(["python", path_creScript1])
-       call(["python", path_creScript2])
-       call(["python", path_TinhToanKiemTra])
        call(["python", path_creResultScript1])
 
   def function_check2(self):
@@ -170,9 +165,6 @@ class MainWindow(QWidget):
        file_object.close()
        call(["python", path_inputScript])
        call(["python", path_NhapSoKhau])
-       call(["python", path_creScript1])
-       call(["python", path_creScript2])
-       call(["python", path_TinhToanKiemTra])
        call(["python", path_creResultScript1])
 
   def function_design(self):
@@ -181,7 +173,6 @@ class MainWindow(QWidget):
        file_object.close()
        call(["python", path_ThietKe_NhapKhauTong])
        call(["python", path_creScript3])
-       call(["python", path_creScript4])
        call(["python", path_ThietKe_TinhToanKiemTra])
 
   def function_design_probability(self):
@@ -190,7 +181,6 @@ class MainWindow(QWidget):
        file_object.close()
        call(["python", path_ThietKe_NhapKhauTong])
        call(["python", path_creScript3])
-       call(["python", path_creScript4])
        call(["python", path_ThietKe_TinhToanKiemTra])
 
 if __name__ == "__main__":
