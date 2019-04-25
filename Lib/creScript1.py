@@ -33,6 +33,10 @@ class Window(QWidget):
 	def __init__(self):
 		super().__init__()
 		self.backgroud()
+		qtRectangle = self.frameGeometry()
+		centerPoint = QDesktopWidget().availableGeometry().center()
+		qtRectangle.moveCenter(centerPoint)
+		self.move(qtRectangle.topLeft())
 
 
 
