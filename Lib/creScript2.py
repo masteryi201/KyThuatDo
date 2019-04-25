@@ -23,9 +23,11 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import time
+from subprocess import call
 
 mypath = Path().absolute()
 join_path = os.path.join(mypath, "..\\\Temp\\\ThongSoKhauGiam.py")
+path_TinhToanKiemTra = os.path.join(mypath, "TinhToanKiemTra.py")
 
 class Window(QWidget):
 	def __init__(self):
@@ -148,7 +150,7 @@ class Window(QWidget):
 		file_object_lst.write("tup_in_creScript2 = (%s,%s)" %(lst,lst2))	
 		file_object_lst.close()
 		self.close()
-
+		call(["python", path_TinhToanKiemTra])
 app = QApplication(sys.argv)
 a_windows = Window()
 sys.exit(app.exec_())
@@ -166,13 +168,16 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import time
+from subprocess import call
 
 mypath = Path().absolute()
 join_path = os.path.join(mypath, "..\\\Temp\\\ThongSoKhauGiam.py")
+path_TinhToanKiemTra = os.path.join(mypath, "TinhToanKiemTra.py")
 
 file_object_error = open(join_path, mode='a')
 file_object_error.write("tup_in_creScript2 = ([], [0, 0, 0])")	
 file_object_error.close()
+call(["python", path_TinhToanKiemTra])
 """)
 	file_object_error.close()
 	call(["python", join_path])
