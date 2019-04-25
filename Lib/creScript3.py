@@ -22,10 +22,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import time
+from subprocess import call
 
 mypath = Path().absolute()
 join_path = os.path.join(mypath, "..\\\Temp\\\ThietKe_ThongSoKhauTang.py")
 join_path_config = os.path.join(mypath, "..\\\Temp\\\config.py")
+path_creScript4 = os.path.join(mypath, "..\\Lib\\creScript4.py")
+
 file_object = open(join_path, mode='w')
 file_object.close()
 class Window(QWidget):
@@ -163,6 +166,7 @@ file_object9.close()
 file_object10 = open(join_path, mode='a',encoding="utf-8")
 file_object10.write("""
 		self.close()
+		call(["python", path_creScript4])
 
 app = QApplication(sys.argv)
 a_windows = Window()
