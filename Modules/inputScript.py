@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import *
 
 mypath = Path().absolute()
 join_path = os.path.join(mypath, "..\\Temp\\config.py")
-
 class Window(QWidget):
 	def __init__(self):
 		super().__init__()
@@ -42,13 +41,14 @@ class Window(QWidget):
 	def bnt_clear(self):
 		if self.line.text() == "0" and self.line1.text() == "0":
 			QMessageBox.question(self, 'Message', "Are you kidding me?",QMessageBox.No)
+		elif self.line.text() == "" and self.line1.text() == "":
+			QMessageBox.question(self, 'Message', "Are you kidding me?",QMessageBox.No)
 		else :
 			file_object = open(join_path, mode='a',encoding="utf-8")
 			file_object.write("""
 SoKhauTang = int('%s')
-SoKhauGiam = int('%s')
-			""" %(self.line.text(),self.line1.text()))
-
+SoKhauGiam = int('%s')""" %(self.line.text(),self.line1.text()))
+			file_object.close()
 		self.close()
 
 app = QApplication(sys.argv)
