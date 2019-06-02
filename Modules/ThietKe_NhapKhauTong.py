@@ -21,6 +21,10 @@ class Window(QWidget):
 	def __init__(self):
 		super().__init__()
 		self.backgroud()
+		qtRectangle = self.frameGeometry()
+		centerPoint = QDesktopWidget().availableGeometry().center()
+		qtRectangle.moveCenter(centerPoint)
+		self.move(qtRectangle.topLeft())
 
 
 
@@ -64,7 +68,7 @@ class Window(QWidget):
 		box.addWidget(self.button)
 		self.setGeometry(200,50,400,600)
 		self.setMaximumSize(400, 600)
-		self.setWindowTitle("Nhập thông số các khâu tăng")
+		self.setWindowTitle("Nhập thông số các khâu khép kín")
 		self.button.clicked.connect(self.send_value)
 		self.show()
 
