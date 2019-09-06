@@ -9,7 +9,7 @@ from subprocess import call
 
 
 mypath = Path().absolute()
-join_path_image = os.path.join(mypath, "..\\Image\\cokhi.jpg")
+join_path_image = os.path.join(mypath, "..\\Image\\background.jpg")
 join_path = os.path.join(mypath, "..\\Temp")
 path_config = os.path.join(mypath, "..\\Temp\\config.py")
 path_inputScript = os.path.join(mypath, "inputScript.py")
@@ -31,7 +31,7 @@ class MainWindow(QWidget):
        QWidget.__init__(self)
        self.setGeometry(100,100,620,500)
        oImage = QImage(join_path_image)
-       sImage = oImage.scaled(QSize(620,500))
+       sImage = oImage.scaled(QSize(1920,1080))
        self.setWindowTitle("Chương trình tính chuỗi kích thước - Kỹ thuật đo")
 
        self.setGeometry(0, 0, 1000, 600)
@@ -58,7 +58,7 @@ class MainWindow(QWidget):
        font1.setWeight(80)
        fontdesign = QtGui.QFont()
        fontdesign.setFamily("Tahoma")
-       fontdesign.setPointSize(15)
+       fontdesign.setPointSize(18)
        fontdesign.setBold(True)   
        fontdesign.setWeight(65)
        font2 = QtGui.QFont()
@@ -73,7 +73,7 @@ class MainWindow(QWidget):
        self.labeTitle.setFont(font1)
        self.labeTitle.setStyleSheet("color: red")
 
-       self.labelnamedesign = QLabel("\t\t\tCoder: Nguyễn Ích Thanh Tú\n\t\t\tTester: Nguyễn Văn Nghĩa")
+       self.labelnamedesign = QLabel(self.print_screen())
        self.labelnamedesign.setFont(fontdesign)
        self.labelnamedesign.setStyleSheet("color: red")
 
@@ -153,8 +153,12 @@ class MainWindow(QWidget):
        self.b3.clicked.connect(self.function_check2)
        self.b4.clicked.connect(self.function_design_probability)
        self.b5.clicked.connect(self.quit)
-
+       
        self.show()
+
+  def print_screen(self):
+       author = "\t\t\tCoder: Nguyễn Ích Thanh Tú\n\t\t\tTester: Nguyễn Văn Nghĩa"
+       return author
   def quit(self):
        self.close()
   def function_check1(self):
